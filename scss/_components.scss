@@ -1,0 +1,31 @@
+@use "./abstracts" as *;
+
+.card {
+  padding: 0.75em;
+  border-radius: $border-radius;
+}
+
+.glass-card {
+  @include glass;
+  @extend .card;
+}
+
+.light-card {
+  @extend .card;
+  background-color: $light-color;
+}
+
+.icon {
+  @include icon;
+  padding: .25em;
+}
+
+#job-role {
+  font-size: $text-lg;
+  color: $light-color;
+}
+
+.info {
+  font-size: $text-base;
+  color: azure;
+}

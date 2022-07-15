@@ -1,0 +1,40 @@
+@use "./abstracts" as *;
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .flex-col {
+    gap: .75em;
+  }
+
+  .flex-md {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .justify-between-md {
+    justify-content: space-between;
+  }
+
+  h1 {
+    font-size: $text-2xl;
+  }
+
+  h3 {
+    font-size: $text-xl;
+  }
+
+  .text-base-md {
+    font-size: $text-base;
+  }
+
+  section {
+    + section {
+      margin-top: 2em;
+    }
+  }
+}

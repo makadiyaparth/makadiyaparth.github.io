@@ -1,0 +1,56 @@
+@use "mixins";
+@use "variables";
+@use "utilities";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  :focus {
+    outline: none;
+  }
+}
+
+body {
+  font-size: variables.$global-font-size;
+  font-family: sans-serif;
+
+  padding: .5em;
+  background: linear-gradient(
+    to right,
+    rgb(15, 32, 39),
+    rgb(32, 58, 67),
+    rgb(44, 83, 100)
+  );
+}
+
+h1 {
+  font-family: 'El Messiri', sans-serif;
+  font-size: variables.$text-xl;
+  color: variables.$accent-color;
+}
+
+h3 {
+  font-size: variables.$text-lg;
+  color: variables.$accent-color;
+  font-variant: small-caps;
+}
+
+hr {
+  border-color: variables.$light-color;
+  margin: 0.5rem 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section {
+  @extend .flex-col;
+
+  + section {
+    margin-top: 2em;
+  }
+}
