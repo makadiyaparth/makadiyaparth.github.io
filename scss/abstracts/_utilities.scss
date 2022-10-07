@@ -1,4 +1,4 @@
-@use 'variables' as v;
+@use "variables" as v;
 
 .flex {
   display: flex;
@@ -9,6 +9,14 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.gap-0 {
+  gap: 0rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
 }
 
 .mb-2 {
@@ -74,4 +82,8 @@
 
 .overflow-x-auto {
   overflow-x: auto;
+}
+
+.opacity-3 {
+  opacity: 0.75;
 }

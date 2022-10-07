@@ -17,7 +17,7 @@
 
 .icon {
   @include icon;
-  padding: .25em;
+  padding: 0.25em;
 }
 
 #job-role {
@@ -28,5 +28,4 @@
 .info {
   font-size: $text-base;
   color: azure;
-  margin-left: 1em;
 }
