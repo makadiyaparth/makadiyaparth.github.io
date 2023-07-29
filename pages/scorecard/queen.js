@@ -7,11 +7,11 @@ $(document).ready(function () {
   var addColumnButton = $("#add-column-button");
 
   var numColumns = 4;
-  var numRows = 0;
+  var numRows = 1;
   var tableData = [];
 
   for (let i = 0; i < numColumns; i++) {
-    var headerCell = $("<th>").text("Header " + (i + 1));
+    var headerCell = $("<th>").text("Player " + (i + 1));
     headerCell.prop("contentEditable", true);
     headerRow.append(headerCell);
     tableData.push(new Array(numRows).fill(0));
@@ -21,7 +21,7 @@ $(document).ready(function () {
     var newRow = $("<tr>");
 
     for (let j = 0; j < numColumns; j++) {
-      var newCell = $("<td>").text("0");
+      var newCell = $("<td>").text("");
       newCell.prop("contentEditable", true);
       newRow.append(newCell);
     }
@@ -35,7 +35,7 @@ $(document).ready(function () {
     var newRow = $("<tr>");
 
     for (let j = 0; j < numColumns; j++) {
-      var newCell = $("<td>").text("0");
+      var newCell = $("<td>").text("");
       newCell.prop("contentEditable", true);
       newRow.append(newCell);
       tableData[j].push(0);
@@ -47,13 +47,13 @@ $(document).ready(function () {
   });
 
   addColumnButton.on("click", function () {
-    var newHeaderCell = $("<th>").text("Header " + (numColumns + 1));
+    var newHeaderCell = $("<th>").text("Player " + (numColumns + 1));
     headerRow.append(newHeaderCell);
 
     for (let i = 0; i < numRows; i++) {
-      var newRowCell = $("<td>").text("0");
+      var newRowCell = $("<td>").text("");
       newRowCell.prop("contentEditable", true);
-      tableData.push(new Array(numRows).fill(0));
+      tableData.push(new Array(numRows));
       tableBody.find("tr").eq(i).append(newRowCell);
     }
 
@@ -73,7 +73,7 @@ $(document).ready(function () {
     footerRow.empty();
 
     for (let i = 0; i < numColumns; i++) {
-      var sum = tableData[i].reduce((a, b) => a + b, 0);
+      var sum = tableData[i].reduce((a, b) => a ?? 0 + b ?? 0, 0);
       var footerCell = $("<td>").text(sum);
       footerRow.append(footerCell);
     }
