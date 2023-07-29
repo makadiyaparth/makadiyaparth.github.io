@@ -6,13 +6,13 @@ $(document).ready(function () {
   var addRowButton = $("#add-row-button");
   var addColumnButton = $("#add-column-button");
 
-  var numColumns = 4; // Initial number of columns
-  var numRows = 0; // Initial number of rows
-  var tableData = []; // Array to store table cell values
+  var numColumns = 4;
+  var numRows = 0;
+  var tableData = [];
 
   for (let i = 0; i < numColumns; i++) {
     var headerCell = $("<th>").text("Header " + (i + 1));
-    headerCell.prop("contentEditable", true); // Allow editing cell values
+    headerCell.prop("contentEditable", true);
     headerRow.append(headerCell);
     tableData.push(new Array(numRows).fill(0));
   }
@@ -22,7 +22,7 @@ $(document).ready(function () {
 
     for (let j = 0; j < numColumns; j++) {
       var newCell = $("<td>").text("0");
-      newCell.prop("contentEditable", true); // Allow editing cell values
+      newCell.prop("contentEditable", true);
       newRow.append(newCell);
     }
 
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
     for (let j = 0; j < numColumns; j++) {
       var newCell = $("<td>").text("0");
-      newCell.prop("contentEditable", true); // Allow editing cell values
+      newCell.prop("contentEditable", true);
       newRow.append(newCell);
       tableData[j].push(0);
     }
@@ -52,11 +52,8 @@ $(document).ready(function () {
 
     for (let i = 0; i < numRows; i++) {
       var newRowCell = $("<td>").text("0");
-      newRowCell.prop("contentEditable", true); // Allow editing cell values
-      console.log(tableData);
+      newRowCell.prop("contentEditable", true);
       tableData.push(new Array(numRows).fill(0));
-      console.log(tableData);
-      console.log(tableBody);
       tableBody.find("tr").eq(i).append(newRowCell);
     }
 
@@ -66,8 +63,8 @@ $(document).ready(function () {
 
   dynamicTable.on("input", "td", function (event) {
     var cellValue = parseInt($(this).text());
-    var rowIdx = $(this).parent().index(); // Get the row index
-    var colIdx = $(this).index(); // Get the column index
+    var rowIdx = $(this).parent().index();
+    var colIdx = $(this).index();
     tableData[colIdx][rowIdx] = cellValue;
     updateFooter();
   });
@@ -76,7 +73,6 @@ $(document).ready(function () {
     footerRow.empty();
 
     for (let i = 0; i < numColumns; i++) {
-      //   console.log(tableData, i);
       var sum = tableData[i].reduce((a, b) => a + b, 0);
       var footerCell = $("<td>").text(sum);
       footerRow.append(footerCell);
