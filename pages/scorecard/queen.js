@@ -3,8 +3,8 @@ $(document).ready(function () {
   var headerRow = $("#header-row");
   var tableBody = $("#table-body");
   var footerRow = $("#footer-row");
-  var addRowButton = $("#add-row-button");
-  var addColumnButton = $("#add-column-button");
+  var addGameButton = $("#add-game-button");
+  var addPlayerButton = $("#add-player-button");
 
   var numColumns = 4;
   var numRows = 1;
@@ -50,7 +50,7 @@ $(document).ready(function () {
     }
   );
 
-  addRowButton.on("click", function () {
+  addGameButton.on("click", function () {
     var newRow = $("<tr>");
 
     for (let j = 0; j < numColumns; j++) {
@@ -63,9 +63,10 @@ $(document).ready(function () {
     tableBody.append(newRow);
     numRows++;
     updateFooter();
+    addPlayerButton.prop("disabled", true);
   });
 
-  addColumnButton.on("click", function () {
+  addPlayerButton.on("click", function () {
     var newHeaderCell = $("<th>").text("Player " + (numColumns + 1));
     newHeaderCell.prop("contentEditable", true);
     headerRow.append(newHeaderCell);
