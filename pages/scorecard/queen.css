@@ -1,6 +1,6 @@
 .container {
   width: 978px;
-  max-width: 50%;
+  max-width: 80%;
   margin: 0 auto;
 
   display: flex;
@@ -37,7 +37,7 @@ table {
 th,
 td {
   border: 1px solid black;
-  padding: 10px;
+  padding: 0.5em 0.75em;
 }
 
 tfoot {
