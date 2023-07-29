@@ -67,6 +67,7 @@ $(document).ready(function () {
 
   addColumnButton.on("click", function () {
     var newHeaderCell = $("<th>").text("Player " + (numColumns + 1));
+    newHeaderCell.prop("contentEditable", true);
     headerRow.append(newHeaderCell);
 
     for (let i = 0; i < numRows; i++) {
