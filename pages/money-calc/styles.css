@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+  background-color: black;
+  color: azure;
+}
+
+.container {
+  width: 75%;
+  max-width: 1024px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /*This is for firefox*/
+}
+
+.denominations {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.denomination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.denomination input {
+  font-size: 1.5rem;
+  padding: 0.25em 0.75em;
+  text-align: center;
+  width: 50px;
+
+  background-color: black;
+  color: azure;
+
+  border: none;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.25); */
+}
+
+.denomination-text {
+  font-size: 1.5rem;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.denomination-text > div {
+  width: 100px;
+}
+
+.denomination-text > div:nth-child(2n + 1) {
+  text-align: center;
+}
+
+.denomination-text > div:nth-child(2n) {
+  text-align: right;
+}
+
+#grand-total {
+  border-top: 1px dashed rgba(255, 255, 255, 0.5);
+}
