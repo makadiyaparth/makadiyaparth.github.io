@@ -1,0 +1,49 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 768px;
+    max-width: 90%;
+    
+    margin: 0 auto;
+    margin-top: 2em;
+    padding: 20px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.pair {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 10px;
+}
+
+.measurement,
+.price {
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .5);
+}
+
+.buttons {
+    display: flex;
+    gap: .5em;
+}
+
+button {
+    font-size: 1rem;
+    padding: .65em 1.25em;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#result {
+    font-weight: bold;
+}
