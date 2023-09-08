@@ -31,7 +31,7 @@ $(document).ready(function() {
         });
 
         if (bestDeal) {
-            resultElement.text(`Best deal is ${bestDeal.measurement} for $${bestDeal.price}`);
+            resultElement.text(`Best deal is ${bestDeal.measurement} for ${bestDeal.price}`);
         } else {
             resultElement.text("No valid deals found.");
         }
