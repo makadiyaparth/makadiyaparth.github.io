@@ -4,8 +4,7 @@ body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 
-  background-color: black;
-  color: azure;
+  color: black;
 }
 
 .container {
@@ -20,34 +19,47 @@ body {
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .action-button {
-  border: 2px solid azure;
+  border: 2px solid black;
   background-color: transparent;
-  color: azure;
+  color: black;
 
-  font-size: 1.25rem;
   padding: 0.5em 1em;
   margin: 0.25em;
 }
 
 .table-container {
   display: inline-block;
-  padding: 10px;
+  border: 4px solid rgb(54, 13, 13);
 }
 
 table {
   border-collapse: collapse;
   border-style: hidden;
   text-align: center;
-  font-size: 1.75rem;
+  overflow-x: auto;
+}
+
+thead th {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  background-color: rgb(103, 140, 219);
+  color: white;
+  border-bottom: 4px solid rgb(54, 13, 13);
+}
+
+tfoot {
+  background-color: rgb(122, 228, 108);
+  border-top: 4px solid rgb(54, 13, 13);
 }
 
 th,
 td {
-  border: 1px solid azure;
+  border: 1px solid black;
   padding: 0.5em 0.75em;
 }
 
