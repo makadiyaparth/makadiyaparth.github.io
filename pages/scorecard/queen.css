@@ -41,6 +41,7 @@ table {
   border-style: hidden;
   text-align: center;
   overflow-x: auto;
+  counter-reset: rowNumber;
 }
 
 thead th {
@@ -50,6 +51,25 @@ thead th {
   background-color: rgb(103, 140, 219);
   color: white;
   border-bottom: 4px solid rgb(54, 13, 13);
+}
+
+tbody {
+  counter-reset: rowNumber;
+}
+
+tbody tr {
+  counter-increment: rowCounter;
+  position: relative;
+}
+
+tbody tr td::before {
+  position: absolute;
+  content: "#" counter(rowCounter);
+  color: gray;
+  display: inline-block;
+  text-align: center;
+  left: -40px;
+  top: 10px;
 }
 
 tfoot {
