@@ -3,13 +3,14 @@ $(document).ready(function () {
   var headerRow = $("#header-row");
   var tableBody = $("#table-body");
   var footerRow = $("#footer-row");
-  var addRowButton = $("#add-row-button");
-  var addColumnButton = $("#add-column-button");
+  var addRowButton = $(".add-row-button");
+  var addColumnButton = $(".add-column-button");
 
   var numColumns = 4;
   var numRows = 1;
   var tableData = [];
 
+  // populate header row
   for (let i = 0; i < numColumns; i++) {
     var headerCell = $("<th>").text("Player " + (i + 1));
     headerCell.prop("contentEditable", true);
@@ -17,6 +18,7 @@ $(document).ready(function () {
     tableData.push(new Array(numRows).fill(0));
   }
 
+  // populate body
   for (let i = 0; i < numRows; i++) {
     var newRow = $("<tr>");
 
