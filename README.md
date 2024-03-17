@@ -8,10 +8,10 @@ A simple HTML5, CSS5 and JavaScript based portfolio.
 
 When counting rupees with multiple denominations, use this tool to keep total of count easily.
 
-[Link to calc](https://makadiyaparth.github.io/pages/money-calc/)
+[Link to calc](https://makadiyaparth.github.io/pages/money-calc)
 
-### Queen Scorecard
+### Scorecard
 
-A scorecard to keep track of the points while playing a fun cards game called "Queen".
+A scorecard to keep track of the points while playing game.
 
-[Link to scorecard](https://makadiyaparth.github.io/pages/scorecard/queen.html)
+[Link to scorecard](https://makadiyaparth.github.io/pages/scorecard)
