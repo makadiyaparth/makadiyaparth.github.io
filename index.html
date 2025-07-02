@@ -3,281 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parth Makadiya - Full Stack Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=El+Messiri&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css" />
-    <title>Parth Makadiya</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <div class="container">
-      <section class="flex-col">
-        <div class="flex-col items-center">
-          <h1>Parth Makadiya</h1>
-          <img class="profile-photo" src="./img/me.jpg" alt="my-photo" title="Parth Makadiya">
-          <p class="text-lg light-color">Full Stack Engineer</p>
+        <div class="container">
+        <img class="photo" src="./img/me.jpg" alt="Parth Makadiya" title="Parth Makadiya">
+        <h1 class="name">Parth Makadiya</h1>
+        
+        <div class="divider"></div>
+        
+        <div class="skills">
+            <div class="skills-grid">
+                <div class="skill">Spring Boot</div>
+                <div class="skill">MySQL</div>
+                <div class="skill">Angular</div>
+                <div class="skill">AWS</div>
+            </div>
         </div>
-        <div class="flex justify-center glass-card">
-          <img class="icon light-card" src="./svg/springio-icon.svg" alt="spring" title="Spring" />
-          <img class="icon light-card" src="./svg/angular-icon.svg" alt="angular" title="Angular" />
-          <img class="icon light-card" src="./svg/mysql-icon.svg" alt="mysql" title="MySQL" />
-          <img class="icon light-card" src="./svg/adobe-xd.svg" alt="adobe-xd" title="Adobe XD" />
-        </div>
-        <a class="link text-base light-color text-center" href="#more-skills">more skills ↓</a>
-      </section>
-
-      <section>
-        <h3>Let's Connect</h3>
-        <div class="flex-col flex-md items-start justify-between-md glass-card">
-          <a
-            class="flex items-center gap-0"
-            href="https://www.linkedin.com/in/parth-makadiya-4065a915a/"
-          >
-            <img class="icon" src="./svg/linkedin-icon-2.svg" alt="linkedin-icon" />
-            <p class="info link">Parth Makadiya</p>
-          </a>
-          <a class="flex items-center gap-0" href="mailto:makadiyaparth98@gmail.com">
-            <img class="icon" src="./svg/gmail-icon.svg" alt="gmail-icon" />
-            <p class="info link">makadiyaparth98@gmail.com</p>
-          </a>
-          <a class="flex items-center gap-0" href="tel:+916352935259">
-            <img class="icon" src="./svg/call-icon.svg" alt="call-icon" />
-            <p class="info link">+91 6352 935 259</p>
-          </a>
-        </div>
-      </section>
-
-      <section>
-        <h3>My Experiences</h3>
-        <div class="flex-col light-color">
-          <div class="glass-card">
-            <div class="flex-md items-baseline justify-between-md mb-2">
-              <h4 class="accent-color">Software Engineer</h4>
-              <p class="text-sm text-base-md">Oct 2023 - Present</p>
-            </div>
-            <p class="text-base opacity-3">Autodesk India Pvt. Ltd., Pune</p>
-            <hr />
-            <ul class="info ml-4">
-              <li>Developing an application for L1/L2 support teams using Spring Boot & ReactJS.</li>
-              <li>Resolving customer incidents through root cause fixes.</li>
-              <li>Fixing security issues in application.</li>
-              <li>Working with tools and technologies like Splunk, Graphana, Jenkins, Spinnaker, etc.</li>
-            </ul>
-          </div>
-          <div class="glass-card">
-            <div class="flex-md items-baseline justify-between-md mb-2">
-              <h4 class="accent-color">Full Stack Engineer</h4>
-              <p class="text-sm text-base-md">Jul 2022 - Sept 2022 (3 mos)</p>
-            </div>
-            <p class="text-base opacity-3">Neptune Ubicom Pvt. Ltd., Pune</p>
-            <hr />
-            <ul class="info ml-4">
-              <li>Successfully reduced the frequency of bugs in production by increasing the code coverage by writing unit tests for old and new features.</li>
-              <li>Created custom reusable components in Angular which reduced code duplication significantly and less error prone.</li>
-              <li>Improved the consistency of UI elements across the project which improved the usability of the product.</li>
-              <li>Making sure that only quality code gets to production through peer code reviews.</li>
-            </ul>
-          </div>
-          <div class="glass-card">
-            <div class="flex-md items-baseline justify-between-md mb-2">
-              <h4 class="accent-color">Java Developer</h4>
-              <p class="text-sm text-base-md">Jun 2020 - Jun 2022 (2 yr, 1 mo)</p>
-            </div>
-            <p class="text-base opacity-3">Neptune Ubicom Pvt. Ltd., Pune</p>
-            <hr />
-            <ul class="info ml-4">
-              <li>Implemented best practices and features provided by Spring Boot to make the code more readable and easy to modify.</li>
-              <li>Writing testable backend services to easily test the features and reduce error rate.</li>
-              <li>Contributed towards documentation of the product features to reduce the dependency of any feature on a specific module owner.</li>
-            </ul>
-          </div>
-          <div class="glass-card">
-            <div class="flex-md items-baseline justify-between-md mb-2">
-              <h4 class="accent-color">Graduate Trainee</h4>
-              <p class="text-sm text-base-md">Jun 2019 - Jun 2020 (1 yr)</p>
-            </div>
-            <p class="text-base opacity-3">Paul Mason Consulting India Pvt. Ltd., Vadodara</p>
-            <hr />
-            <ul class="info ml-4">
-              <li>Single-handedly maintained an internal ticketing system used by support team</li>
-              <li>Self taught Spring boot and Angular</li>
-              <li>Started working as an Angular developer for a flagship product</li>
-              <li>Worked with NodeJS and Angular</li>
-            </ul>
-          </div>
-          <div class="glass-card">
-            <div class="flex-md items-baseline justify-between-md mb-2">
-              <h4 class="accent-color">Spring Framework Session</h4>
-              <p class="text-sm text-base-md">3 hrs</p>
-            </div>
-            <p class="text-base opacity-3">Babaria Institute of Technology, Vadodara</p>
-            <hr />
-            <p class="info">
-              Delivered an overview and hands-on session of Spring Framework.
-              Idea was to make the audience familiar with Spring Framework and
-              this advantages.
-            </p>
-          </div>
-          <div class="glass-card">
-            <div class="flex-md items-baseline justify-between-md mb-2">
-              <h4 class="accent-color">Project Trainee</h4>
-              <p class="text-sm text-base-md">Jun 2018 - Apr 2019 (10 mos)</p>
-            </div>
-            <p class="text-base opacity-3">Paul Mason Consulting India Pvt. Ltd., Vadodara</p>
-            <hr />
-            <p class="info">
-              Worked on live projects for 8 months. Hands-on Struts, Spring
-              Framework, Hibernate, JSP, MySQL.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h3>Education</h3>
-        <div class="flex-col light-color">
-          <div class="glass-card">
-            <div class="flex-md items-baseline justify-between-md">
-              <h4 class="accent-color">B.E. in Computer Engineering</h4>
-              <p class="text-sm text-base-md">2015 - 2019 (4 yrs)</p>
-            </div>
-            <hr />
-            <p class="text-base">Babaria Institute of Technology, Vadodara</p>
-            <!-- <p class="score">8.75 CGPA</p> -->
-          </div>
-          <div class="glass-card">
-            <div class="flex-md items-baseline justify-between-md">
-              <h4 class="accent-color">Higher School Certificate</h4>
-              <p class="text-sm text-base-md">2014 - 2015 (1 yr)</p>
-            </div>
-            <hr />
-            <p class="text-base">P. P. Savani Chaitanya Vidya Sankul, Surat</p>
-            <!-- <p class="score">87.6 %</p> -->
-          </div>
-          <div class="glass-card">
-            <div class="flex-md items-baseline justify-between-md">
-              <h4 class="accent-color">Secondary School Certificate</h4>
-              <p class="text-sm text-base-md">2012 - 2013 (1 yr)</p>
-            </div>
-            <hr />
-            <p class="text-base">P. P. Savani Chaitanya Vidya Sankul, Surat</p>
-            <!-- <p class="score">8.2 CGPA</p> -->
-          </div>
-        </div>
-      </section>
-
-      <section id="more-skills">
-        <h3>Skills</h3>
-        <div class="flex-col light-color">
-          <div>
-            <h4 class="text-base mb-2">Languages</h4>
-            <div class="overflow-x-auto glass-card">
-              <div class="inline-flex">
-                <img class="icon light-card" src="./svg/java-icon.svg" alt="java-icon" title="Java" />
-                <img class="icon light-card"
-                  src="./svg/javascript.svg"
-                  alt="javascript"
-                  title="Javascript"
-                />
-                <img class="icon light-card"
-                  src="./svg/typescriptlang-icon.svg"
-                  alt="typescriptlang-icon"
-                  title="Typescript"
-                />
-                <img class="icon light-card"
-                  src="./svg/kotlinlang-icon.svg"
-                  alt="kotlinlang-icon"
-                  title="Kotlin"
-                />
-                <img class="icon light-card" src="./svg/python-5.svg" alt="python-5" title="Python" />
-                <img class="icon light-card" src="./svg/mysql-icon.svg" alt="mysql" title="MySQL" />
-                <img class="icon light-card" src="./svg/html5.svg" alt="html5" title="HTML" />
-                <img class="icon light-card" src="./svg/css-3.svg" alt="css-3" title="CSS" />
-                <img class="icon light-card"
-                  src="./svg/sass-lang-icon.svg"
-                  alt="sass-lang-icon"
-                  title="SASS"
-                />
-              </div>
-            </div>
-          </div>
-          <div>
-            <h4 class="text-base mb-2">Frameworks</h4>
-            <div class="overflow-x-auto glass-card">
-              <div class="inline-flex">
-                <img class="icon light-card"
-                  src="./svg/springio-icon.svg"
-                  alt="springio-icon"
-                  title="Spring"
-                />
-                <img class="icon light-card"
-                  src="./svg/angular-icon.svg"
-                  alt="angular-icon"
-                  title="Angular"
-                />
-                <img class="icon light-card"
-                  src="./svg/hibernate-icon.svg"
-                  alt="hibernate-icon"
-                  title="Hibernate"
-                />
-                <img class="icon light-card"
-                  src="./svg/reactjs-icon.svg"
-                  alt="reactjs-icon"
-                  title="ReactJS"
-                />
-                <img class="icon light-card"
-                  src="./svg/bootstrap-4.svg"
-                  alt="bootstrap-4"
-                  title="Bootstrap"
-                />
-                <img class="icon light-card"
-                  src="./svg/tailwindcss-icon.svg"
-                  alt="tailwindcss-icon"
-                  title="Tailwind CSS"
-                />
-              </div>
-            </div>
-          </div>
-          <div>
-            <h4 class="text-base mb-2">Tools & Others</h4>
-            <div class="overflow-x-auto glass-card">
-              <div class="inline-flex">
-                <img class="icon light-card" src="./svg/git-scm-icon.svg" alt="git-scm-icon" title="Git" />
-                <img class="icon light-card"
-                  src="./svg/visualstudio_code-icon.svg"
-                  alt="visualstudio_code-icon"
-                  title="Visual Studio Code"
-                />
-                <img class="icon light-card"
-                  src="./svg/jetbrains-icon.svg"
-                  alt="jetbrains-icon"
-                  title="Intellij Products"
-                />
-                <img class="icon light-card" src="./svg/figma-icon.svg" alt="figma" title="Figma" />
-                <img class="icon light-card" src="./svg/adobe-xd.svg" alt="adobe-xd" title="Adobe XD" />
-                <img class="icon light-card" src="./svg/linux-icon.svg" alt="linux-icon" title="Linux" />
-                <img class="icon light-card"
-                  src="./svg/atlassian_jira-icon.svg"
-                  alt="atlassian_jira-icon"
-                  title="Jira"
-                />
-                <img class="icon light-card" src="./svg/npmjs-icon.svg" alt="npmjs-icon" title="NPM" />
-                <img class="icon light-card"
-                  src="./svg/amazon_aws-icon.svg"
-                  alt="amazon_aws-icon"
-                  title="Amazon Web Services"
-                />
-                <img class="icon light-card"
-                  src="./svg/nodejs-icon.svg"
-                  alt="nodejs-icon"
-                  title="Node.js"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
+      <div class="divider"></div>
+      
+      <div class="contact">
+        <a href="https://www.linkedin.com/in/parth-makadiya-4065a915a/" class="contact-link" target="_blank">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="mailto:makadiyaparth98@gmail.com" class="contact-link">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.918L12 12.18l9.446-8.36h.918c.904 0 1.636.732 1.636 1.636Z"/>
+          </svg>
+          Email
+        </a>
+      </div>
     </div>
   </body>
 </html>

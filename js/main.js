@@ -1,1 +1,0 @@
-gsap.fromTo('section', { opacity: 0, scale: 2 }, { duration: 1, opacity: 1, scale: 1, stagger: .5, ease: 'power4.in' });
