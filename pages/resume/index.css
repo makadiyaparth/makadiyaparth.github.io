@@ -1,0 +1,58 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc; /* Light gray background */
+}
+
+.resume-container {
+    max-width: 900px; /* Max width for desktop viewing */
+    margin: 2rem auto;
+    background-color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 0.75rem;
+    padding: 2.5rem;
+}
+
+/* Specific styles for printing */
+@media print {
+    body {
+        background-color: white !important;
+        /* Set text colors explicitly to black for all elements */
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .resume-container {
+        /* Remove shadow, margin, and maximize width for the print page */
+        box-shadow: none !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        padding: 1rem 1.5rem !important; /* Slightly smaller padding for A4 fit */
+        border-radius: 0 !important;
+    }
+    
+    /* Ensure text is dark black on print */
+    h1, h2, h3, h4, p, li, a {
+        color: #000 !important;
+    }
+    
+    /* Remove links visual cues on print */
+    a {
+        text-decoration: none !important;
+    }
+    
+    /* Force the line below the header to be black */
+    .header-line {
+        border-color: #000 !important;
+    }
+    
+    /* Ensure good contrast for section headers */
+    .section-header {
+        border-color: #000 !important;
+    }
+}
+
+.section-header {
+    border-bottom: 2px solid #1f2937; /* Darker gray for section separation */
+    margin-bottom: 1rem;
+    padding-bottom: 0.25rem;
+}
