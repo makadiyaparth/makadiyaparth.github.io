@@ -8,8 +8,8 @@
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 0.6rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.6rem var(--space-lg);
   display: flex;
   align-items: center;
 }
@@ -18,19 +18,18 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: #667eea;
+  color: var(--color-accent);
   text-decoration: none;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: var(--font-size-sm);
   padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-  transition: background 0.2s ease, color 0.2s ease;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
 
 .app-nav a:hover {
-  background: rgba(102, 126, 234, 0.1);
-  color: #764ba2;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-hover);
 }
 
 .app-nav svg {

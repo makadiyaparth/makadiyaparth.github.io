@@ -1,6 +1,32 @@
+/* ============================================================
+   Guess Number — Light theme override
+   ============================================================ */
+
+body {
+  background-color: var(--color-bg);
+}
+
 .container {
-    padding: 5% 10%;
-  }
-  
-  .header {
-  }
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.header {
+  margin-bottom: var(--space-lg);
+}
+
+.header h1 {
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.header h3 {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+main p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}

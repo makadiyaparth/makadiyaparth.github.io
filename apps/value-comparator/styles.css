@@ -1,49 +1,81 @@
+/* ============================================================
+   Value Comparator — Light theme override
+   ============================================================ */
+
 body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  background-color: var(--color-bg);
+  padding: var(--space-xl) var(--space-md);
 }
 
 .container {
-    width: 768px;
-    max-width: 90%;
-    
-    margin: 0 auto;
-    margin-top: 2em;
-    padding: 20px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2em;
+  width: 90%;
+  max-width: 640px;
+  margin: 0 auto;
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+h1 {
+  color: var(--color-text);
 }
 
 .pair {
-    display: flex;
-    gap: 1em;
-    margin-bottom: 10px;
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .measurement,
 .price {
-    padding: 8px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, .5);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  padding: 0.5em 0.75em;
+  border: none;
+  border-bottom: 1.5px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+  transition: border-color var(--transition-fast);
+  outline: none;
+}
+
+.measurement:focus,
+.price:focus {
+  border-bottom-color: var(--color-accent);
 }
 
 .buttons {
-    display: flex;
-    gap: .5em;
+  display: flex;
+  gap: var(--space-sm);
 }
 
 button {
-    font-size: 1rem;
-    padding: .65em 1.25em;
-    cursor: pointer;
-    background-color: transparent;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  padding: 0.55em 1.25em;
+  cursor: pointer;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+button:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+button:active {
+  transform: scale(0.97);
 }
 
 #result {
-    font-weight: bold;
+  font-weight: 700;
+  color: var(--color-accent);
+  font-size: var(--font-size-lg);
 }
