@@ -1,26 +1,7 @@
 /* ============================================================
-   Value Comparator — Light theme override
+   Value Comparator — App-specific styles only
+   (layout, title, buttons, body handled by app-page.css)
    ============================================================ */
-
-body {
-  background-color: var(--color-bg);
-  padding: var(--space-xl) var(--space-md);
-}
-
-.container {
-  width: 90%;
-  max-width: 640px;
-  margin: 0 auto;
-  margin-top: var(--space-xl);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-xl);
-}
-
-h1 {
-  color: var(--color-text);
-}
 
 .pair {
   display: flex;
@@ -49,33 +30,13 @@ h1 {
 .buttons {
   display: flex;
   gap: var(--space-sm);
-}
-
-button {
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  font-weight: 500;
-  padding: 0.55em 1.25em;
-  cursor: pointer;
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
-}
-
-button:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  background: var(--color-accent-soft);
-}
-
-button:active {
-  transform: scale(0.97);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #result {
   font-weight: 700;
   color: var(--color-accent);
   font-size: var(--font-size-lg);
+  text-align: center;
 }

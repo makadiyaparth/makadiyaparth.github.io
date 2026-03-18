@@ -1,26 +1,10 @@
 /* ============================================================
-   Money Calculator — Light theme override
+   Money Calculator — App-specific styles only
+   (layout, title, body handled by app-page.css)
    ============================================================ */
 
-body {
-  background-color: var(--color-bg);
-  padding: var(--space-xl) var(--space-md);
-}
-
 .container {
-  width: 90%;
   max-width: 480px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-h2 {
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: var(--space-lg);
 }
 
 .denominations {

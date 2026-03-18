@@ -1,0 +1,105 @@
+/* ============================================================
+   Shared App Page Layout
+   Common styles for all individual app pages:
+   body, container, page-title, page-subtitle, buttons, inputs
+   ============================================================ */
+
+/* ---- Body ---- */
+body {
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  padding: var(--space-xl) var(--space-md);
+}
+
+/* ---- Container ---- */
+.container {
+  width: 90%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+/* ---- Page Title (gradient, matches apps hub) ---- */
+.page-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-accent), #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+}
+
+/* ---- Page Subtitle ---- */
+.page-subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  margin-top: calc(-1 * var(--space-sm));
+}
+
+/* ---- Buttons ---- */
+.action-button,
+.app-btn {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  padding: 0.55em 1.25em;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.action-button:hover,
+.app-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.action-button:active,
+.app-btn:active {
+  transform: scale(0.97);
+}
+
+/* ---- Inputs ---- */
+.app-input {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  padding: 0.5em 0.75em;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+
+.app-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+/* ---- Responsive ---- */
+@media (min-width: 640px) {
+  body {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .action-button,
+  .app-btn {
+    font-size: var(--font-size-base);
+  }
+}

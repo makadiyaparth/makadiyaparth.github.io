@@ -1,50 +1,10 @@
 /* ============================================================
-   Scorecard — Light theme override
+   Scorecard — App-specific styles only
+   (layout, title, buttons, body handled by app-page.css)
    ============================================================ */
 
-body {
-  background-color: var(--color-bg);
-  padding: var(--space-xl) var(--space-md);
-}
-
 .container {
-  width: 90%;
   max-width: 1024px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-xl);
-}
-
-.title {
-  font-size: var(--font-size-2xl);
-  font-weight: 700;
-  color: var(--color-text);
-}
-
-.action-button {
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-  border: 1.5px solid var(--color-border);
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  padding: 0.55em 1.25em;
-  margin: var(--space-xs);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.action-button:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  background: var(--color-accent-soft);
-}
-
-.action-button:active {
-  transform: scale(0.97);
 }
 
 .table-container {
@@ -116,24 +76,12 @@ td {
 
 /* Responsive */
 @media screen and (min-width: 768px) {
-  .title {
-    font-size: 2.5rem;
-  }
-
   table {
     font-size: var(--font-size-lg);
-  }
-
-  .action-button {
-    font-size: var(--font-size-base);
   }
 }
 
 @media screen and (min-width: 992px) {
-  .title {
-    font-size: 3rem;
-  }
-
   table {
     font-size: 1.25rem;
   }
