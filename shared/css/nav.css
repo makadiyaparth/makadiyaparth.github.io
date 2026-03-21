@@ -12,6 +12,36 @@
   padding: 0.6rem var(--space-lg);
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.nav-left, .nav-right {
+  flex: 1;
+  display: flex;
+}
+
+.nav-left {
+  justify-content: flex-start;
+}
+
+.nav-center {
+  flex: 2;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-title {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: linear-gradient(135deg, var(--color-accent), #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .app-nav a {

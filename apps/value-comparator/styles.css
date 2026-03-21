@@ -3,28 +3,83 @@
    (layout, title, buttons, body handled by app-page.css)
    ============================================================ */
 
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 480px;
+}
+
 .pair {
   display: flex;
-  gap: var(--space-md);
-  margin-bottom: var(--space-sm);
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-surface);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+}
+
+.input-wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: var(--space-xs);
+}
+
+.input-wrap label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .measurement,
 .price {
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  padding: 0.5em 0.75em;
-  border: none;
-  border-bottom: 1.5px solid var(--color-border);
-  background: transparent;
-  color: var(--color-text);
-  transition: border-color var(--transition-fast);
-  outline: none;
+  width: 100%;
 }
 
-.measurement:focus,
-.price:focus {
-  border-bottom-color: var(--color-accent);
+.remove-pair-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+  padding: var(--space-xs);
+  line-height: 1;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  align-self: center;
+  margin-top: calc(var(--font-size-xs) + var(--space-xs)); /* align with input */
+}
+
+.remove-pair-btn:hover {
+  color: #ef4444; /* red */
+  background: rgba(239, 68, 68, 0.1);
+}
+
+@media (max-width: 400px) {
+  .pair {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .remove-pair-btn {
+    align-self: stretch;
+    margin-top: var(--space-sm);
+    background: rgba(239, 68, 68, 0.05);
+    color: #ef4444;
+    padding: var(--space-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+  }
+  .remove-pair-btn::after {
+    content: " Remove";
+  }
 }
 
 .buttons {

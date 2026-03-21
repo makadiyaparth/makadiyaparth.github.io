@@ -25,6 +25,7 @@ $(document).ready(function () {
     for (let j = 0; j < numColumns; j++) {
       var newCell = $("<td>").text("0");
       newCell.prop("contentEditable", true);
+      newCell.attr("inputmode", "numeric");
       newRow.append(newCell);
     }
 
@@ -58,6 +59,7 @@ $(document).ready(function () {
     for (let j = 0; j < numColumns; j++) {
       var newCell = $("<td>").text("0");
       newCell.prop("contentEditable", true);
+      newCell.attr("inputmode", "numeric");
       newRow.append(newCell);
       tableData[j].push(0);
     }
@@ -75,6 +77,7 @@ $(document).ready(function () {
     for (let i = 0; i < numRows; i++) {
       var newRowCell = $("<td>").text("0");
       newRowCell.prop("contentEditable", true);
+      newRowCell.attr("inputmode", "numeric");
       tableData.push(new Array(numRows).fill(0));
       tableBody.find("tr").eq(i).append(newRowCell);
     }
