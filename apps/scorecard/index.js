@@ -13,6 +13,78 @@ $(document).ready(function () {
   var numColumns = 4;
   var numRows = 1;
   var tableData = [];
+  var isLocked = false;
+
+  function saveState() {
+    var headerNames = [];
+    headerRow.find("th").each(function() {
+      headerNames.push($(this).text());
+    });
+
+    var state = {
+      numColumns: numColumns,
+      numRows: numRows,
+      tableData: tableData,
+      isLocked: isLocked,
+      pointsPerRound: pointsPerRoundInput.val(),
+      totalPoints: totalPointsInput.val(),
+      headerNames: headerNames
+    };
+    sessionStorage.setItem("scorecard_state", JSON.stringify(state));
+  }
+
+  function renderTableFromData(headerNames) {
+    headerRow.empty();
+    tableBody.empty();
+    footerRow.empty();
+
+    // populate header row
+    for (let i = 0; i < numColumns; i++) {
+        var name = (headerNames && headerNames[i]) ? headerNames[i] : "Player " + (i + 1);
+        var headerCell = $("<th>").text(name);
+        headerCell.prop("contentEditable", true);
+        headerRow.append(headerCell);
+    }
+
+    // populate body
+    for (let i = 0; i < numRows; i++) {
+        var newRow = $("<tr>");
+        for (let j = 0; j < numColumns; j++) {
+            var newCell = $("<td>").text(tableData[j][i].toString());
+            newCell.prop("contentEditable", true);
+            newCell.attr("inputmode", "numeric");
+            newRow.append(newCell);
+        }
+        tableBody.append(newRow);
+    }
+
+    pointsPerRoundInput.prop("disabled", isLocked);
+    totalPointsInput.prop("disabled", isLocked);
+
+    updateFooter();
+  }
+
+  function loadState() {
+    var saved = sessionStorage.getItem("scorecard_state");
+    if (saved) {
+      try {
+        var state = JSON.parse(saved);
+        numColumns = state.numColumns;
+        numRows = state.numRows;
+        tableData = state.tableData;
+        isLocked = state.isLocked;
+        
+        pointsPerRoundInput.val(state.pointsPerRound || "");
+        totalPointsInput.val(state.totalPoints || "");
+        
+        renderTableFromData(state.headerNames);
+        return true;
+      } catch(e) {
+        console.error("Failed to load state", e);
+      }
+    }
+    return false;
+  }
 
   function initTable() {
     headerRow.empty();
@@ -21,6 +93,11 @@ $(document).ready(function () {
     tableData = [];
     numColumns = 4;
     numRows = 1;
+    isLocked = false;
+
+    // Reset inputs visually
+    pointsPerRoundInput.val("");
+    totalPointsInput.val("");
 
     // populate header row
     for (let i = 0; i < numColumns; i++) {
@@ -47,22 +124,30 @@ $(document).ready(function () {
     totalPointsInput.prop("disabled", false);
 
     updateFooter();
+    saveState();
   }
 
   // Initialize for the first time
-  initTable();
+  if (!loadState()) {
+     initTable();
+  }
 
-  // Disable settings if any input happens or rows/cols added
   function lockSettings() {
     pointsPerRoundInput.prop("disabled", true);
     totalPointsInput.prop("disabled", true);
+    isLocked = true;
   }
 
-  // Re-eval on input changes for settings (before they are locked)
-  pointsPerRoundInput.on("input", updateFooter);
-  totalPointsInput.on("input", updateFooter);
+  pointsPerRoundInput.on("input", function() {
+      updateFooter();
+      saveState();
+  });
+  
+  totalPointsInput.on("input", function() {
+      updateFooter();
+      saveState();
+  });
 
-  // Reset Button
   resetGameButton.on("click", function () {
     if (confirm("Are you sure you want to reset the game? This will clear all scores.")) {
       initTable();
@@ -103,6 +188,7 @@ $(document).ready(function () {
     tableBody.append(newRow);
     numRows++;
     updateFooter();
+    saveState();
   });
 
   addColumnButton.on("click", function () {
@@ -121,19 +207,28 @@ $(document).ready(function () {
 
     numColumns++;
     updateFooter();
+    saveState();
   });
 
   dynamicTable.on("input", "td", function (event) {
     lockSettings();
     var cellValue = $(this).text();
-    // Allow for negative numbers
     var parsedValue = cellValue === "" || cellValue === "-" ? 0 : parseInt(cellValue);
     if (isNaN(parsedValue)) parsedValue = 0;
     
     var rowIdx = $(this).parent().index();
     var colIdx = $(this).index();
-    tableData[colIdx][rowIdx] = parsedValue;
+    
+    if(tableData[colIdx] && typeof tableData[colIdx][rowIdx] !== 'undefined') {
+        tableData[colIdx][rowIdx] = parsedValue;
+    }
+    
     updateFooter();
+    saveState();
+  });
+
+  dynamicTable.on("input", "th", function (event) {
+    saveState();
   });
 
   function updateFooter() {
@@ -142,11 +237,12 @@ $(document).ready(function () {
     var expectedRowSum = pointsPerRoundInput.val() !== "" ? parseFloat(pointsPerRoundInput.val()) : null;
     var targetTotal = totalPointsInput.val() !== "" ? parseFloat(totalPointsInput.val()) : null;
 
-    // Highlight rows based on condition
     tableBody.find("tr").each(function(rowIdx) {
         var rowSum = 0;
         for (let col = 0; col < numColumns; col++) {
-            rowSum += tableData[col][rowIdx];
+            if(tableData[col] && typeof tableData[col][rowIdx] !== 'undefined') {
+                rowSum += tableData[col][rowIdx];
+            }
         }
         if (expectedRowSum !== null && rowSum !== expectedRowSum) {
             $(this).addClass("invalid-row");
@@ -156,7 +252,7 @@ $(document).ready(function () {
     });
 
     for (let i = 0; i < numColumns; i++) {
-      var sum = tableData[i].reduce((a, b) => a + b, 0);
+      var sum = tableData[i] ? tableData[i].reduce((a, b) => a + b, 0) : 0;
       var footerCell = $("<td>").text(sum);
       
       if (targetTotal !== null && sum >= targetTotal) {
