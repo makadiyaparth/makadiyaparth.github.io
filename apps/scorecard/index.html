@@ -15,9 +15,21 @@
     <div class="container">
         <h1 class="page-title">Scorecard</h1>
 
+        <div class="settings-container">
+            <div class="setting-group">
+                <label for="points-per-round" title="Total points expected in a single round. Highlights row if sum doesn't match.">Points per Round (validation):</label>
+                <input type="number" id="points-per-round" class="setting-input" placeholder="Optional">
+            </div>
+            <div class="setting-group">
+                <label for="total-points" title="Points required for a player to indicate end game condition.">Total points to end game:</label>
+                <input type="number" id="total-points" class="setting-input" placeholder="Optional">
+            </div>
+        </div>
+
         <div class="action-buttons">
             <button class="add-row-button action-button">Add Game</button>
             <button class="add-column-button action-button">Add Player</button>
+            <button class="reset-game-button action-button danger-button">Reset Game</button>
         </div>
 
         <div class="table-container">

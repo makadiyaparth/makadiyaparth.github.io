@@ -5,34 +5,69 @@ $(document).ready(function () {
   var footerRow = $("#footer-row");
   var addRowButton = $(".add-row-button");
   var addColumnButton = $(".add-column-button");
+  var resetGameButton = $(".reset-game-button");
+
+  var pointsPerRoundInput = $("#points-per-round");
+  var totalPointsInput = $("#total-points");
 
   var numColumns = 4;
   var numRows = 1;
   var tableData = [];
 
-  // populate header row
-  for (let i = 0; i < numColumns; i++) {
-    var headerCell = $("<th>").text("Player " + (i + 1));
-    headerCell.prop("contentEditable", true);
-    headerRow.append(headerCell);
-    tableData.push(new Array(numRows).fill(0));
-  }
+  function initTable() {
+    headerRow.empty();
+    tableBody.empty();
+    footerRow.empty();
+    tableData = [];
+    numColumns = 4;
+    numRows = 1;
 
-  // populate body
-  for (let i = 0; i < numRows; i++) {
-    var newRow = $("<tr>");
-
-    for (let j = 0; j < numColumns; j++) {
-      var newCell = $("<td>").text("0");
-      newCell.prop("contentEditable", true);
-      newCell.attr("inputmode", "numeric");
-      newRow.append(newCell);
+    // populate header row
+    for (let i = 0; i < numColumns; i++) {
+        var headerCell = $("<th>").text("Player " + (i + 1));
+        headerCell.prop("contentEditable", true);
+        headerRow.append(headerCell);
+        tableData.push(new Array(numRows).fill(0));
     }
 
-    tableBody.append(newRow);
+    // populate body
+    for (let i = 0; i < numRows; i++) {
+        var newRow = $("<tr>");
+        for (let j = 0; j < numColumns; j++) {
+            var newCell = $("<td>").text("0");
+            newCell.prop("contentEditable", true);
+            newCell.attr("inputmode", "numeric");
+            newRow.append(newCell);
+        }
+        tableBody.append(newRow);
+    }
+
+    // Enable settings on reset
+    pointsPerRoundInput.prop("disabled", false);
+    totalPointsInput.prop("disabled", false);
+
+    updateFooter();
   }
 
-  updateFooter();
+  // Initialize for the first time
+  initTable();
+
+  // Disable settings if any input happens or rows/cols added
+  function lockSettings() {
+    pointsPerRoundInput.prop("disabled", true);
+    totalPointsInput.prop("disabled", true);
+  }
+
+  // Re-eval on input changes for settings (before they are locked)
+  pointsPerRoundInput.on("input", updateFooter);
+  totalPointsInput.on("input", updateFooter);
+
+  // Reset Button
+  resetGameButton.on("click", function () {
+    if (confirm("Are you sure you want to reset the game? This will clear all scores.")) {
+      initTable();
+    }
+  });
 
   dynamicTable.on(
     "focus",
@@ -54,6 +89,7 @@ $(document).ready(function () {
   );
 
   addRowButton.on("click", function () {
+    lockSettings();
     var newRow = $("<tr>");
 
     for (let j = 0; j < numColumns; j++) {
@@ -70,6 +106,7 @@ $(document).ready(function () {
   });
 
   addColumnButton.on("click", function () {
+    lockSettings();
     var newHeaderCell = $("<th>").text("Player " + (numColumns + 1));
     newHeaderCell.prop("contentEditable", true);
     headerRow.append(newHeaderCell);
@@ -87,19 +124,45 @@ $(document).ready(function () {
   });
 
   dynamicTable.on("input", "td", function (event) {
-    var cellValue = parseInt($(this).text());
+    lockSettings();
+    var cellValue = $(this).text();
+    // Allow for negative numbers
+    var parsedValue = cellValue === "" || cellValue === "-" ? 0 : parseInt(cellValue);
+    if (isNaN(parsedValue)) parsedValue = 0;
+    
     var rowIdx = $(this).parent().index();
     var colIdx = $(this).index();
-    tableData[colIdx][rowIdx] = cellValue;
+    tableData[colIdx][rowIdx] = parsedValue;
     updateFooter();
   });
 
   function updateFooter() {
     footerRow.empty();
+    
+    var expectedRowSum = pointsPerRoundInput.val() !== "" ? parseFloat(pointsPerRoundInput.val()) : null;
+    var targetTotal = totalPointsInput.val() !== "" ? parseFloat(totalPointsInput.val()) : null;
+
+    // Highlight rows based on condition
+    tableBody.find("tr").each(function(rowIdx) {
+        var rowSum = 0;
+        for (let col = 0; col < numColumns; col++) {
+            rowSum += tableData[col][rowIdx];
+        }
+        if (expectedRowSum !== null && rowSum !== expectedRowSum) {
+            $(this).addClass("invalid-row");
+        } else {
+            $(this).removeClass("invalid-row");
+        }
+    });
 
     for (let i = 0; i < numColumns; i++) {
       var sum = tableData[i].reduce((a, b) => a + b, 0);
       var footerCell = $("<td>").text(sum);
+      
+      if (targetTotal !== null && sum >= targetTotal) {
+          footerCell.addClass("winner-cell");
+      }
+      
       footerRow.append(footerCell);
     }
   }
